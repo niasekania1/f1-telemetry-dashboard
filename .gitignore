@@ -10,7 +10,6 @@ wheels/
 .venv
 
 # FastF1 cache files (too large for GitHub)
-cache/
 *.ff1pkl
 *.sqlite
 
