@@ -15,3 +15,5 @@ wheels/
 
 # macOS
 .DS_Store
+CLAUDE.md
+USER_PROFILE.md

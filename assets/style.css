@@ -1,0 +1,559 @@
+/* ============================================
+   F1 ATIS Telemetry Dashboard — Custom Theme
+   ============================================ */
+
+/* === Global === */
+body {
+    background-color: #0f0f1a !important;
+    font-variant-numeric: tabular-nums;
+    overflow-x: hidden;
+}
+
+/* === Scrollbars === */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+* { scrollbar-width: thin; scrollbar-color: #333 transparent; }
+
+/* === Dash dcc.Dropdown dark theme overrides === */
+.dash-dropdown .Select-control {
+    background-color: #1a1a2e !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    border-radius: 6px !important;
+    color: #fff !important;
+    height: 36px !important;
+    min-height: 36px !important;
+}
+
+.dash-dropdown .Select-control:hover {
+    border-color: rgba(255,255,255,0.25) !important;
+}
+
+.dash-dropdown .is-focused .Select-control {
+    border-color: #e10600 !important;
+    box-shadow: 0 0 0 1px rgba(225,6,0,0.3) !important;
+}
+
+.dash-dropdown .Select-value-label,
+.dash-dropdown .Select-placeholder {
+    color: #ccc !important;
+    font-size: 0.85rem !important;
+    line-height: 34px !important;
+}
+
+.dash-dropdown .Select-input > input {
+    color: #fff !important;
+}
+
+.dash-dropdown .Select-menu-outer {
+    background-color: #1a1a2e !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    border-radius: 0 0 6px 6px !important;
+    margin-top: -1px !important;
+    z-index: 1000 !important;
+}
+
+.dash-dropdown .Select-option {
+    background-color: #1a1a2e !important;
+    color: #ccc !important;
+    font-size: 0.8rem !important;
+    padding: 7px 12px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 1.3 !important;
+    height: auto !important;
+    min-height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    border-bottom: 1px solid rgba(255,255,255,0.03) !important;
+    font-family: "SF Mono", "Menlo", "Monaco", "Consolas", monospace !important;
+}
+
+.dash-dropdown .Select-menu {
+    max-height: 350px !important;
+    overflow-y: auto !important;
+}
+
+/* Ensure the virtualized list items don't overlap */
+.dash-dropdown .VirtualizedSelectOption {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: flex !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    font-family: "SF Mono", "Menlo", "Monaco", "Consolas", monospace !important;
+}
+
+.dash-dropdown .Select-value-label {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    font-family: "SF Mono", "Menlo", "Monaco", "Consolas", monospace !important;
+}
+
+.dash-dropdown .Select-option.is-focused {
+    background-color: #16213e !important;
+    color: #fff !important;
+}
+
+.dash-dropdown .Select-option.is-selected {
+    background-color: rgba(225,6,0,0.2) !important;
+    color: #fff !important;
+}
+
+.dash-dropdown .Select-arrow-zone .Select-arrow {
+    border-top-color: #888 !important;
+}
+
+.dash-dropdown .Select-clear-zone .Select-clear {
+    color: #888 !important;
+}
+
+/* Also handle the VirtualizedSelect variant */
+.VirtualizedSelectOption {
+    background-color: #1a1a2e !important;
+    color: #ccc !important;
+}
+.VirtualizedSelectFocusedOption {
+    background-color: #16213e !important;
+    color: #fff !important;
+}
+
+/* === dbc.Select dark styling === */
+.custom-dark-select {
+    background-color: #1a1a2e !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    color: #ccc !important;
+    font-size: 0.85rem !important;
+    border-radius: 6px !important;
+    height: 36px !important;
+    padding: 4px 10px !important;
+}
+
+.custom-dark-select:focus {
+    border-color: #e10600 !important;
+    box-shadow: 0 0 0 2px rgba(225,6,0,0.2) !important;
+    color: #fff !important;
+}
+
+.custom-dark-select option {
+    background-color: #1a1a2e;
+    color: #ccc;
+}
+
+/* === Control Strip === */
+.control-strip {
+    background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 10px 16px;
+}
+
+.control-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6b7280;
+    margin-bottom: 2px;
+    font-weight: 600;
+}
+
+/* === Metric Cards Strip === */
+.metrics-strip {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 12px 16px;
+}
+
+.metric-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    padding: 10px 14px;
+    min-width: 145px;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+
+.metric-card:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+.metric-icon {
+    font-size: 1.3rem;
+    width: 26px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.metric-text {
+    min-width: 0;
+}
+
+.metric-value {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.metric-label {
+    font-size: 0.65rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    line-height: 1.3;
+}
+
+/* === Lap Info Badges === */
+.lap-info-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    justify-content: flex-end;
+}
+
+.info-badge {
+    font-size: 0.78rem !important;
+    font-weight: 500 !important;
+    padding: 3px 10px !important;
+    border-radius: 4px !important;
+}
+
+/* === Chart Containers === */
+.chart-wrapper {
+    border-radius: 10px;
+    overflow: hidden;
+    background: #0f0f1a;
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* === Chat Bubble === */
+.chat-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.chat-fab {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e10600, #b30500);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(225,6,0,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.chat-fab:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 28px rgba(225,6,0,0.5);
+}
+
+.chat-panel {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 380px;
+    height: 500px;
+    background: #1a1a2e;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    background: linear-gradient(180deg, #1a1a2e, #16213e);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+.chat-close-btn {
+    background: none;
+    border: none;
+    color: #9ca3af;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 2px 8px;
+    border-radius: 4px;
+    line-height: 1;
+}
+
+.chat-close-btn:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-msg {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    word-wrap: break-word;
+}
+
+.chat-msg-user {
+    align-self: flex-end;
+    background: #e10600;
+    color: #fff;
+    border-bottom-right-radius: 4px;
+}
+
+.chat-msg-ai {
+    align-self: flex-start;
+    background: rgba(255,255,255,0.06);
+    color: #e5e5e5;
+    border-bottom-left-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    background: #16213e;
+    flex-shrink: 0;
+}
+
+.chat-text-input {
+    flex: 1;
+    background: rgba(255,255,255,0.06) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    font-size: 0.85rem !important;
+}
+
+.chat-text-input:focus {
+    border-color: rgba(225,6,0,0.5) !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.chat-text-input::placeholder {
+    color: #6b7280 !important;
+}
+
+.chat-send-btn {
+    background: #e10600;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.chat-send-btn:hover {
+    background: #b30500;
+}
+
+/* === Playback Bar === */
+.playback-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.play-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e10600;
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+
+.play-btn:hover {
+    background: #b30500;
+}
+
+.speed-controls {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.speed-btn {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #9ca3af;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.speed-btn:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+.speed-btn-active {
+    background: rgba(225,6,0,0.2);
+    border-color: #e10600;
+    color: #fff;
+}
+
+.transport-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.progress-bar-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.replay-slider {
+    flex: 1;
+}
+
+.replay-time-label {
+    font-size: 0.75rem;
+    color: #6b7280;
+    font-family: "SF Mono", "Menlo", "Monaco", monospace;
+    min-width: 45px;
+    text-align: center;
+}
+
+.live-readout {
+    display: flex;
+    gap: 16px;
+    font-size: 0.8rem;
+    color: #9ca3af;
+    flex-shrink: 0;
+    font-family: "SF Mono", "Menlo", "Monaco", monospace;
+}
+
+.readout-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.readout-value {
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.readout-label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6b7280;
+}
+
+/* Replay slider dark theme */
+.replay-slider .rc-slider-rail {
+    background: rgba(255,255,255,0.1) !important;
+    height: 4px !important;
+}
+
+.replay-slider .rc-slider-track {
+    background: #e10600 !important;
+    height: 4px !important;
+}
+
+.replay-slider .rc-slider-handle {
+    border-color: #e10600 !important;
+    background: #e10600 !important;
+    width: 14px !important;
+    height: 14px !important;
+    margin-top: -5px !important;
+}
+
+.replay-slider .rc-slider-handle:hover,
+.replay-slider .rc-slider-handle:active {
+    box-shadow: 0 0 8px rgba(225,6,0,0.5) !important;
+}
+
+/* === Responsive === */
+@media (max-width: 992px) {
+    .metrics-strip {
+        flex-wrap: wrap;
+    }
+    .metric-card {
+        min-width: 120px;
+    }
+    .lap-info-strip {
+        justify-content: flex-start;
+        margin-top: 8px;
+    }
+    .chat-panel {
+        width: 320px;
+        height: 420px;
+        right: -8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .chat-panel {
+        width: calc(100vw - 48px);
+        right: -8px;
+    }
+    .metric-card {
+        min-width: 110px;
+        padding: 8px 10px;
+    }
+    .metric-value {
+        font-size: 1rem;
+    }
+}
